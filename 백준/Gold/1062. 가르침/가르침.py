@@ -20,7 +20,7 @@ for i in range(N):
 
 
 if K >= 5:
-    answer = []
+    answer = 0
     for i in combinations(alp, K - 5):
         possible = set(i)
         possible |= set("antic")
@@ -33,7 +33,7 @@ if K >= 5:
                     break
             if read:
                 cnt += 1
-        answer.append(cnt)
-    print(max(answer))
+        answer = max(answer, cnt)
+    print(answer)
 else:
     print(0)
