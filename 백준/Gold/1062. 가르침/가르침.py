@@ -16,7 +16,7 @@ words = []
 
 for i in range(N):
     word = input()
-    words.append(word[4:-4])
+    words.append(set(word[4:-4]))
 
 
 if K >= 5:
@@ -26,13 +26,9 @@ if K >= 5:
         possible |= set("antic")
         cnt = 0
         for word in words:
-            read = True
-            for j in word:
-                if j not in possible:
-                    read = False
-                    break
-            if read:
+            if word <= possible:
                 cnt += 1
+
         answer = max(answer, cnt)
     print(answer)
 else:
